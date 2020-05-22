@@ -1,0 +1,110 @@
+﻿/* Colours */
+@media screen,projection,tv,handheld {
+	#header {
+		background: transparent url(header-bg.png) left bottom repeat-x;
+	}
+	#header .box-sizing {
+		/*background: transparent url(feature-background.jpg) left bottom no-repeat;*/
+	}
+	
+	
+	#nav-site {
+		background: #fff url(nav-bg.png) left bottom repeat-x;
+	}
+	
+	#nav-section .box-sizing,
+	#breadcrumbs ol,
+	.aside .box-sizing {
+		background: #eef1f5;
+	}
+	.article .box-sizing {
+		background: #fff;
+		border: 1px solid #eef1f5;
+	}
+	
+	#tools li,
+	#nav-site li,
+	#breadcrumbs li,
+	#footer-contents li {
+		background: transparent url(separator.png) left center no-repeat;
+	}
+	
+	#tools li:first-child,
+	#nav-site li:first-child,
+	#breadcrumbs li:first-child,
+	#footer-contents li:first-child {
+		background: none;
+	}
+	
+	#breadcrumbs li {
+		padding-left: 10px;
+		background: transparent url(breadcrumb.png) left center no-repeat;
+	}
+	
+	#tools a:hover,
+	#nav-site a:hover,
+	#nav-site li:hover a,
+	#nav-site li a.open,
+	#breadcrumbs a:hover {
+		background: #eef1f5;
+	}
+	
+/* footer */
+	#fat-footer {
+		border-bottom: 1px solid #c4d2e1;
+		background: #eef1f5;
+	}
+	#footer-contents {
+		background: #fff;
+	}
+	
+	
+/* Site navigation */
+	#nav-site ul ul {
+		background: #efefef;
+		border: solid #ccc;
+		border-width: 2px;
+		margin: 0 -2px -2px -2px;
+	}
+	#nav-site ul ul li {
+		background: none;
+	}
+	#nav-site .single a:hover,
+	#nav-site .single a:focus {
+		border: solid #ccc;
+		border-width: 2px;
+		margin: -2px;
+	}
+	#nav-site li a.open,
+	#nav-site li a.open:hover,
+	#nav-site li a.open:focus {
+		border: solid #ccc;
+		border-width: 2px 2px 0 2px;
+		margin: -2px -2px 0 -2px;
+	}
+	#nav-site li a:hover {
+		/*background: #efefef;*/
+	}
+	#nav-site ul ul li a:hover {
+		background: #ddd;
+	}
+
+/* Page options */
+	.page-options ul ul {
+		background: #efefef;
+	}
+	.page-options ul ul li a:hover {
+		background: #ddd;
+	}
+	#post-page-options li:hover ul,
+	#post-page-options li.hover ul {
+		left: -.2em;
+	}
+
+/* Page feedback */
+	#page-feedback form {
+		background: #efefef;
+	}
+
+}
+

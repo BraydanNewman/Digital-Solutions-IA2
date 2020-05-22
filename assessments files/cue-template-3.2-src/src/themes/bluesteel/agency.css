@@ -1,0 +1,246 @@
+﻿/**
+ * Blue Steel.
+ * A design created for the new Queensland Government WebCentre.
+ */
+@media screen,projection,tv,handheld {
+	#header {
+		position: relative;
+		background: #6b7279 url(header-bg.jpg) left top no-repeat;
+		color: #fff;
+	}
+	#header .box-sizing {
+		/*background: transparent url(agency-branding.png) left bottom no-repeat;*/
+	}
+	
+	#nav-site {
+		background: #3a4249;
+		color: #fff;
+	}
+	#nav-site a {
+		font-weight: bold;
+	}
+	
+	#header a,
+	#header a:link,
+	#header a:visited,
+	#nav-site a,
+	#nav-site a:link,
+	#nav-site a:visited {
+		color: #fff;
+	}
+	
+	.aside .box-sizing {
+		background: #eef1f5;
+	}
+	.article .box-sizing {
+		background: #fff;
+		border: 1px solid #eef1f5;
+	}
+	
+	
+	#nav-site li {
+		border-left: 1px solid #5a6066;
+		padding: .3em .1em 0;
+	}
+	
+	#nav-site li a {
+		padding: .3em 1em .6em;
+	}
+	
+	#tools li,
+	#breadcrumbs li,
+	#footer-contents li {
+		background: transparent url(separator.png) left center no-repeat;
+	}
+	
+	#tools li:first-child,
+	#nav-site li:first-child,
+	#breadcrumbs li:first-child,
+	#footer-contents li:first-child {
+		background: none;
+		border: none;
+	}
+	
+	#breadcrumbs li {
+		padding-left: 10px;
+		background: transparent url(breadcrumb.png) left center no-repeat;
+	}
+
+
+
+/* page-container, content, column backgrounds */
+	#page-container {
+		background-color: #f4f4f4;
+		background-position: center top;
+		background-repeat: repeat-y;
+		
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	#document-properties {
+		margin: 0;
+	}	
+	#breadcrumbs,
+	.article,
+	#document-properties,
+	#post-page-options {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	#breadcrumbs ol,
+	.article .box-sizing,
+	#document-properties .box-sizing,
+	#post-page-options ul,
+	#page-feedback form {
+		border: none;
+		background: #fff;
+	}
+	#breadcrumbs ol {
+		padding-top: 1.5em;
+	}
+	#post-page-options ul.qg-drop-down {
+		padding-bottom: 1em;
+	}
+	#post-page-options li:hover ul,
+	#post-page-options li.hover ul {
+		left: -.2em;
+	}
+	.aside .box-sizing {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+
+
+/* footer */
+	#footer {
+		background: #464f57;
+		color: #fff;
+	}
+	#fat-footer {
+		background: #3a4249;
+		padding-top: .7em;
+		padding-bottom: .7em;
+		margin: 0;
+	}
+	#fat-footer .section {
+		background: #31373e;
+		padding-bottom: 1em;
+		min-height: 20em;
+	}
+	#fat-footer .section * {
+		margin: 0 1em;
+	}
+	#fat-footer .section * * {
+		margin: 0;
+	}
+	/*
+	#fat-footer h2 {
+		position: static;
+		color: #fff;
+	}
+	*/
+	#footer a,
+	#footer a:link,
+	#footer a:visited {
+		color: #fff;
+	}
+	
+	
+	
+/* Site navigation */
+	#nav-site ul ul {
+		background: #fff;
+		border: solid #3a4249;
+		border-width: 2px;
+		margin: 0 -2px -2px -2px;
+	}
+	#nav-site ul ul li {
+		background: none;
+		border: none;
+	}
+	
+	#nav-site ul li ul {
+		top: 2.2em;
+	}
+	
+	
+	#nav-site a:hover,
+	#nav-site a:focus,
+	#nav-site .single a:hover,
+	#nav-site .single a:focus {
+		background: #fff;
+		color: #3a4249;
+	}
+	/*
+	#nav-site li a.open,
+	#nav-site li a.open:hover,
+	#nav-site li a.open:focus {
+		background: #fff;
+		color: #3a4249;
+	}
+	*/
+	#nav-site li a:hover {
+		/*background: #efefef;*/
+	}
+	#nav-site ul ul li a:hover {
+		/*background: #ddd;*/
+	}
+	
+	
+	#nav-site ul li:hover a,
+	#nav-site ul li:hover a:link,
+	#nav-site ul li:hover a:hover,
+	#nav-site ul li:hover a:visited,
+	#nav-site ul li.hover a,
+	#nav-site ul li.hover a:link,
+	#nav-site ul li.hover a:hover,
+	#nav-site ul li.hover a:visited,
+	#nav-site ul li a.open,
+	#nav-site ul li a.open:link,
+	#nav-site ul li a.open:hover,
+	#nav-site ul li a.open:visited {
+		color: #3a4249;
+		background: #fff;
+	}
+	
+	
+	#nav-site ul li:hover ul,
+	#nav-site ul li.hover ul {
+		left: 1px;
+	}
+	
+	#nav-site ul li:hover ul.right-edge,
+	#nav-site ul li.hover ul.right-edge {
+		right: 1px;
+	}
+	
+	
+
+/* Section navigation */
+	#nav-section .box-sizing {
+		background: #f4f4f4;
+	}
+	#nav-section ul {
+		list-style-type: square;
+	}
+	
+/* Page options */
+	.page-options ul ul,
+	#post-page-options ul ul {
+		background: #efefef;
+	}
+	.page-options ul ul li a:hover {
+		background: #ddd;
+	}
+	
+/* Asides */
+	.aside .box-sizing {
+		background: #edf5e2;
+	}
+
+/* Page feedback */
+	#page-feedback form {
+		
+	}
+}

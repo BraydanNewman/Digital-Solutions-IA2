@@ -1,0 +1,51 @@
+@media screen,projection,tv,handheld {
+/* layout-medium - 800 */
+	#access a {
+		position: absolute;
+	}
+	/* Consistent layout margins */
+	#nav-section .box-sizing {
+		margin: 0 0 .7em;
+	}
+	#page-feedback form {
+		margin: 0 0 .7em .7em;
+	}
+	#breadcrumbs ol,
+	.article .box-sizing,
+	#document-properties .box-sizing,
+	#post-page-options ul {
+		margin: 0 0 0 .7em;
+	}
+	.aside .box-sizing {
+		margin-left: .7em;
+	}
+	
+	#nav-section {
+		width: 34%;
+	}
+	#content-container {
+		width: 66%;
+	}
+	#breadcrumbs,
+	.article,
+	#document-properties,
+	#post-page-options,
+	#page-feedback {
+		width: 100%;
+	}
+	.aside {
+		width: 100%;
+	}
+	#fat-footer .section {
+		width: 18%;
+		margin: 0 .7%;
+	}
+	#qg-branding {
+		display: block;
+		padding: 0 1em 1em 1em;
+	}
+	#qg-branding .tagline {
+		margin: 0 auto;
+		max-width: 100%;
+	}
+}

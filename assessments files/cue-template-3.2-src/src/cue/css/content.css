@@ -1,0 +1,35 @@
+
+
+/*
+	Downloadable document links
+	Example:
+	<a href="file.doc" class="download">
+		<span class="title">Document title</span><span class="meta"> (DOC, 50 KB)</span>
+	</a>
+*/
+	a.download,
+	a.download:link,
+	a.download:visited {
+		text-decoration: none;
+	}
+	
+	a.download .title,
+	a.download:link .title,
+	a.download:visited .title {
+		text-decoration: underline;
+	}
+
+
+
+.highlight {
+	background-color: #ff9;
+}
+
+kbd {
+	background: #efefef;
+	border-color: #fff #ddd #ddd #fff;
+	border-left: 1px solid #fff;
+	border-style: solid;
+	border-width: 1px 2px 2px 1px;
+	padding: 0 0.2em;
+}

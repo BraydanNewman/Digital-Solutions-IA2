@@ -1,0 +1,173 @@
+@media screen,projection,tv,handheld {
+/*
+	CSS drop-downs for modern browsers
+*/
+	#nav-site,
+	#nav-site .max-width {
+		overflow: visible;
+	}
+	
+	/* The following forces these elements to contain the floated elements within without relying on overflow:hidden; */
+	.page-options:after,
+	.page-options ul:after,
+	#nav-site:after,
+	#nav-site .max-width:after {
+		content: ".";
+		display: block;
+		height: 0;
+		font-size: 0;
+		clear: both;
+		visibility: hidden;
+		speak: none;
+	}
+	
+	#nav-site li a.open {
+		position: relative;
+		z-index: 3;
+	}
+	
+	
+	#nav-site ul li,
+	.page-options ul li,
+	.qg-drop-down li {
+		position: relative;
+	}
+	
+	/* Remove child menus from tab order until JavaScript enabled */
+	#nav-site ul li ul,
+	.page-options ul li ul {
+		display: none;
+	}
+	
+	 /* Return child menus to tab order now that JS is available (.qg-drop-down class added using JavaScript) */
+	#nav-site ul.qg-drop-down li ul,
+	.page-options ul.qg-drop-down li ul {
+		display: block;
+	}
+	
+	#nav-site ul li ul,
+	.qg-drop-down li ul,
+	.page-options ul li ul {
+		position: absolute;
+		z-index: 1;
+		
+		/* Use off-left or off-top because menu items still needs to be focusable for keyboard nav to work.
+		   Use off-top because off-left was contributing to bug: Top of content and section nav cut off 
+		   when skip link followed to #content - but only when dropdowns JavaScript is enabled */
+		top: -999999px;
+	}
+	#nav-site ul li ul {
+		/* Off-top not working for nav-site, use off-left */
+		top: 2.1em;
+		left: -999999px;
+	}
+	
+	
+	
+	#nav-site     ul li:hover ul,
+	#nav-site     ul li.hover ul,
+	.page-options ul li:hover ul,
+	.page-options ul li.hover ul,
+	.qg-drop-down    li:hover ul,
+	.qg-drop-down    li.hover ul {
+		display: block;
+		left: .5em;
+		top: 2em;
+	}
+	
+	#nav-site ul  li:hover ul.right-edge,
+	#nav-site ul  li.hover ul.right-edge,
+	.page-options ul li:hover ul.right-edge,
+	.page-options ul li.hover ul.right-edge,
+	.qg-drop-down li:hover ul.right-edge,
+	.qg-drop-down li.hover ul.right-edge {
+		/* For when the drop-down is too close to the right edge of the container to display aligned left */
+		left: auto;
+		top: 2em;
+		right: .5em;
+	}
+	
+	
+	/* Hide all menu items deeper than one drop-down */
+	#nav-site ul li:hover ul ul,
+	.page-options ul li:hover ul ul,
+	.qg-drop-down li.hover ul ul {
+		display: none;
+	}
+	
+	#nav-site ul,
+	.page-options ul,
+	#nav-site ul ul li,
+	.page-options ul ul li {
+		display: block;
+		clear: left;
+		float: none;
+	}
+	
+	#nav-site ul ul li a,
+	.page-options ul ul li a {
+		display: block;
+		float: none;
+	}
+
+/* Keyboard navigation */
+	a:focus,
+	input:focus,
+	textarea:focus,
+	button:focus,
+	select:focus,
+	.button:focus {
+		outline: 2px solid #f8be4c;
+	}
+	a.mouse-focus:focus,
+	input.mouse-focus:focus,
+	textarea.mouse-focus:focus,
+	button.mouse-focus:focus,
+	select.mouse-focus:focus,
+	.button.mouse-focus:focus {
+		outline: none;
+	}
+
+
+
+/* page options */
+	#pre-page-options ul {
+		float: right;
+	}
+	.page-options ul {
+		list-style-type: none;
+		margin: 0; padding: 0;
+	}
+	.page-options ul li {
+		float: left;
+	}
+	.page-options ul li li {
+		float: none;
+		display: inline;
+	}
+	.page-options ul li a {
+		display: block;
+		padding: .2em .5em .3em;
+	}
+	#post-page-options ul {
+		float: none;
+		padding-left: .5em;
+	}
+	#post-page-options ul ul {
+		padding-left: 0;
+	}
+	#post-page-options li:hover ul,
+	#post-page-options li.hover ul {
+		top: auto;
+		bottom: 2em;
+		left: auto;
+		z-index: 2;
+	}
+	#post-page-options li:hover ul.right-edge,
+	#post-page-options li.hover ul.right-edge {
+		/* For when the drop-down is too close to the right edge of the container to display aligned left */
+		left: auto;
+		right: 0;
+	}
+
+}

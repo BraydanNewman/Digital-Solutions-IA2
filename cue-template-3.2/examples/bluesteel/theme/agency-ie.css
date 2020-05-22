@@ -1,0 +1,20 @@
+@media screen,projection,tv,handheld {
+	
+	#breadcrumbs,
+	.article,
+	#document-properties,
+	#post-page-options,
+	#breadcrumbs ol,
+	.article .box-sizing,
+	#document-properties .box-sizing,
+	#post-page-options ul {
+		*zoom: 1; /* IE 6 & 7 */
+	}
+	
+	
+	#fat-footer .section { /* min-height for IE6 */
+		_height: 20em;
+		_overflow: visible;
+	}
+	
+}

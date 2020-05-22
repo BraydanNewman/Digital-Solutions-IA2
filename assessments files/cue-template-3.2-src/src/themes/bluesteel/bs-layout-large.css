@@ -1,0 +1,12 @@
+@media screen,projection,tv,handheld {
+	#page-container {
+		background-image: url(page-container-bg.png);
+	}
+	#breadcrumbs {
+		width: 67%;
+	}
+	#breadcrumbs ol {
+		margin: 0 .7em;
+	}
+	
+}

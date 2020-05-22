@@ -1,0 +1,89 @@
+@media screen,projection,tv,handheld {
+	/* Layout */
+	#header .box-sizing {
+		_height: 105px; /* IE6 */
+		_overflow: visible; /* IE6 */
+	}
+	
+	#nav-site,
+	#nav-site .max-width,
+	#nav-site ul ul li,
+	#nav-site ul ul li a,
+	#breadcrumbs ol,
+	#page-container,
+	#content-container,
+	#nav-section .box-sizing,
+	.article .box-sizing,
+	.aside .box-sizing,
+	.page-options,
+	#footer .box-sizing,
+	#qg-coa,
+	#site-name {
+		_zoom: 1; /* IE6 */
+	}
+	
+	#access li,
+	#tools li,
+	#nav-site li,
+	#breadcrumbs li,
+	#footer li {
+		_background: expression(this.previousSibling ? undefined : 'none'); /* IE 6 .first-child */
+	}
+	/* hide visually */
+	#header h2 { /* IE 6 .first-child */
+		_position: expression(this.previousSibling ? undefined : 'absolute');
+		_left: expression(this.previousSibling ? undefined : '-999px');
+		_width: expression(this.previousSibling ? undefined : '990px');
+	}
+	
+	/* Skip links display poorly */
+	#access a {
+		*white-space: nowrap; /* IE 6 & 7 */
+	}
+	
+	
+	#nav-section,
+	.aside,
+	.article {
+		_overflow: hidden; /* IE6 */
+	}
+	
+	/* Avoid flicker IE6 & 7 */
+		body.layout-large #nav-section {
+			width: 24.95% !important;
+		}
+		body.layout-large .aside {
+			width: 32.95% !important;
+		}
+		body.layout-medium #nav-section {
+			width: 33.95% !important;
+		}
+	
+	
+	#footer li {
+		*display: inline; /* IE 6 & 7 */
+	}
+	#footer li a {
+		*display: inline; /* IE 6 & 7 */
+	}
+	#fat-footer li a {
+		*display: block; /* IE 6 & 7 */
+	}
+	
+	/* page options */
+	.page-options.qg-drop-down li ul {
+		*width: 1px; /* IE 6 & 7 */
+		*overflow: visible;
+	}
+	
+	/* section navigation */
+	#nav-section li { /* Spacing for IE6 */
+		_margin-top: .2em;
+		_margin-bottom: .2em;
+	}
+	
+	/* Search results presentation */
+	#search-recommended {
+		*display: inline; /* IE7 fix for double margin bug */
+	}
+}

@@ -1,0 +1,149 @@
+/* Results items */
+	.search-results { 
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+	.search-results h3 {
+		margin: 1em 0 0;
+		padding: 0;
+		font-weight: normal;	
+		font-family: Verdana, Helvetica, Arial, sans-serif;
+	}
+	
+	.search-results p{
+		padding: 0;
+		margin: 0;
+	}
+	.search-results a {
+		text-decoration: none;
+		display: block;
+		float: left;
+	}
+	.search-results a .result-title {
+		text-decoration: underline;
+	}
+	.search-description{
+		display: block;
+		float: left;
+		clear: both;
+	}
+	.search-results .meta {
+		color: green;
+		font-size: 100%;
+		display: block;
+		clear: both;
+	}
+
+
+/*recommend results */
+	#search-recommended {
+		margin: 2.75em 0 1.75em 0;
+		clear: both;
+		overflow: hidden;
+	}
+	.search-results .result-title {
+		float: left;
+		margin-right: .7em;
+	}
+	.search-results .recommended {
+		color: red;
+		font-size: 80%;
+		text-decoration: none;
+	}
+	.search-results .file-meta {
+		color: #0456FF;
+		font-size: 80%;
+		padding-top: .15em;
+	}
+
+
+/* search results block */
+	h2.resultset-title {
+		font-weight: normal;
+		border-bottom: 1px solid #ccc;
+		border-top: 1px solid #ccc;
+		padding: .2em 0 .3em 0;
+		display: block;
+		font-size: 120%;
+	}
+	.search-box-group{
+		margin-bottom: 2em;
+	}
+	.search-utilities {
+		font-size: 94%; /* 94% of 80% = 75% */
+		line-height: 1.25em;
+		float: left;
+		margin: 1em 1em 1em 0;
+	}
+	.search-scope {
+		font-size: 94%; /* 94% of 80% = 75% */
+		margin-top: .5em;
+		border: none;
+	}
+	.search-scope strong {
+		float: left;
+		color: #000;
+		padding: 0;
+		font-weight: normal;
+		padding-right: 1em;
+	}
+	
+	.search-box-group form {
+		float: left;
+		padding:0;
+	}
+	.search-box-group fieldset input {
+		vertical-align: middle;
+		margin-right: .2em;
+	}
+	.search-box-group fieldset label {
+		margin-right: 1em;
+	}
+	
+	fieldset.search-inputs {
+		margin: 0; padding: 0;
+		border: none;
+	}
+	
+	
+	.search-box-group form {
+		margin: 1em 1em 1em 0;
+	}
+	.search-query-body {
+		font-size: 140%;
+		margin-top: .1em;
+	}
+	
+	.search-submit-body {
+		padding: .2em .5em;
+	}
+
+
+
+/*pagination */
+	#pagination {
+		/*margin: 0.7em 0em 0em 3em;*/
+		clear: both;
+		margin: 1em 0;
+		overflow: hidden;
+	}
+	#pagination ul {
+		padding: 0;
+	}
+	#pagination li {
+		display:block;
+		list-style:none;
+		float:left;
+		margin: 0 .3em;
+	}
+	#pagination li a {
+		padding: 0 .2em;
+	}
+	#pagination li.previous,
+	#pagination li.next {
+		margin: 0;
+	}
+	#pagination li.previous {
+		margin-right: .3em;
+	}

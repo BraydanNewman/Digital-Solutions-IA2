@@ -1,0 +1,69 @@
+@media screen,projection,tv,handheld {
+	
+	#nav-site,
+	#tools,
+	#nav-site ul ul,
+	#tools a:hover,
+	#nav-site a:hover,
+	#nav-site li a.open,
+	.page-options ul ul,
+	.page-options ul a:hover,
+	.page-options ul li a.open,
+	.page-options ul li:hover ul a:hover,
+	.page-options ul li.hover ul a:hover {
+		/* IE6 doesn't like alpha transparent bg images */
+		_background-image: none;
+	}
+	
+	#nav-site,
+	#tools {
+		/* Alpha transparency in bg images for IE 6 */
+		_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', src='theme/nav-bg.png', sizingMethod='scale');
+	}
+	
+	
+	#nav-site ul ul,
+	.page-options ul ul,
+	#tools a:hover,
+	#nav-site li a:hover,
+	#nav-site li a.open,
+	.page-options ul a:hover,
+	.page-options ul li a.open,
+	.page-options ul li:hover a,
+	.page-options ul li.hover a {
+		_background: #000; /* flat hover colour for IE 6 */
+	}
+	
+	#tools a,
+	#tools input,
+	#nav-site a,
+	#nav-site li a.open,
+	#nav-site ul ul li {
+		_position: relative; /* Fixes bg with alpha image loader filter where links are not clickable and inputs not usable */
+	}
+
+	.search-wrapper{
+		_width: 21em;
+	}
+	
+	#search-form input.submit {
+		_float: right;
+	}
+	
+	.search-wrapper,
+	#page-container,
+	#page-container .max-width,
+	#pre-page-options,
+	#meta-wrapper,
+	#meta-wrapper .meta-box-sizing,
+	.article .box-sizing .border,
+	#meta-wrapper .meta-box-sizing .border {
+		*zoom: 1; /* Make containers behave in IE6 & 7 */
+	}
+	#meta-wrapper {
+		_margin-bottom: 0; /* IE6 doesn't like the negative margin */
+		_padding-bottom: .7em; /* Give IE6 a little space instead */
+	}
+	
+	
+}

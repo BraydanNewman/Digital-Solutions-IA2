@@ -1,0 +1,22 @@
+@media screen,projection,tv,handheld {
+/* section navigation */
+	#nav-section .qg-cue-widget .title {
+		position: absolute;
+		left: -9999px;
+		width: 990px;
+	}
+	#nav-section .qg-cue-widget {
+		margin: 0 5px 0 -19px;
+		width: 14px;
+		height: 14px;
+		display: inline-block;
+		line-height: 0;
+	}
+	#nav-section .qg-cue-widget img {
+		speak: none;
+		vertical-align: text-bottom;
+	}
+	#nav-section li.qg-cue-widget-container {
+		list-style: none;
+	}
+}

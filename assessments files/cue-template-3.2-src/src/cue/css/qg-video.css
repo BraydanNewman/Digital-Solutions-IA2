@@ -1,0 +1,392 @@
+@media screen,projection,tv,handheld {
+.qg-ovt-active,
+.qg-ovt-alternatives,
+.qg-ovt-options {
+	display: block;
+	clear: both;
+}
+
+.qg-ovt-active h2,
+.qg-ovt-active h3,
+.qg-ovt-active h4 {
+	font-size: 140%;
+}
+
+.qg-ovt-active .qg-ovt-controls ul,
+.qg-ovt-active .qg-ovt-alternatives ul {
+	list-style-type: none;
+	margin: 0; padding: 0;
+}
+
+.qg-ovt-active .qg-ovt-controls {
+	float: left;
+	clear: both;
+	width: 100%;
+	background: #d5d5d5 url(../images/video/video-controls-bg.png) left top repeat-x;
+	padding-top: 2px;
+	
+	/* Pull the HTML cotrols up over the video controls */
+		position: relative;
+		left: 0;
+		bottom: 20px;
+		margin-bottom: -20px;
+		z-index: 1;
+}
+.qg-ovt-active .qg-ovt-controls ul {
+	width: 100%;
+	overflow: hidden;
+	/* display: inline-block; "clearfix" for modern browsers without using overflow:hidden; */
+}
+
+.qg-ovt-active .qg-ovt-controls li {
+	float: left;
+	margin: 0;
+	padding: 4px 4px 6px;
+}
+.qg-ovt-active .qg-ovt-controls a {
+	display: block;
+	width: 44px;
+	height: 27px;
+	overflow: hidden;
+}
+.qg-ovt-active .qg-ovt-controls a img.for-css-replacement {
+	width: 44px;
+	height: 27px;
+	border: none;
+}
+
+
+/* Important for keyboard access! */
+.qg-ovt-active .qg-ovt-controls a.keyboard-focus,
+.qg-ovt-active .qg-ovt-options a.keyboard-focus {
+	outline: 2px solid #eab754;
+}
+
+
+/* Set sprites! */
+.qg-ovt-active .qg-ovt-controls a {
+	background-color: transparent;
+	background-image: url(../images/video/video-ui-sprites.png);
+	background-position: left top;
+	background-repeat: no-repeat;
+}
+
+
+.qg-ovt-active .qg-ovt-controls .play a,
+.qg-ovt-active .qg-ovt-controls .play a:visited {
+	background-position: -88px top;
+}
+.qg-ovt-active .qg-ovt-controls .play a.pressed,
+.qg-ovt-active .qg-ovt-controls .play a.pressed:visited {
+	background-position: -88px -27px;
+}
+.qg-ovt-active .qg-ovt-controls .play a:hover {
+	background-position: -44px top;
+}
+.qg-ovt-active .qg-ovt-controls .play a.pressed:hover {
+	background-position: -44px -27px;
+}
+
+
+.qg-ovt-active .qg-ovt-controls .captions a,
+.qg-ovt-active .qg-ovt-controls .captions a:visited {
+	background-position: -88px -162px;
+}
+.qg-ovt-active .qg-ovt-controls .captions a.pressed,
+.qg-ovt-active .qg-ovt-controls .captions a.pressed:visited {
+	background-position: left -162px;
+}
+.qg-ovt-active .qg-ovt-controls .captions a:hover,
+.qg-ovt-active .qg-ovt-controls .captions a.pressed:hover {
+	background-position: -44px -162px;
+}
+
+
+.qg-ovt-active .qg-ovt-controls .audio-description a,
+.qg-ovt-active .qg-ovt-controls .audio-description a:visited {
+	background-position: -88px -189px;
+}
+.qg-ovt-active .qg-ovt-controls .audio-description a.pressed,
+.qg-ovt-active .qg-ovt-controls .audio-description a.pressed:visited {
+	background-position: left -189px;
+}
+.qg-ovt-active .qg-ovt-controls .audio-description a:hover,
+.qg-ovt-active .qg-ovt-controls .audio-description a.pressed:hover {
+	background-position: -44px -189px;
+}
+
+
+.qg-ovt-active .qg-ovt-controls .volume a,
+.qg-ovt-active .qg-ovt-controls .volume a:visited {
+	background-position: -88px -135px;
+}
+.qg-ovt-active .qg-ovt-controls .volume a.pressed,
+.qg-ovt-active .qg-ovt-controls .volume a.pressed:visited,
+.qg-ovt-active .qg-ovt-controls .volume a.vol-muted,
+.qg-ovt-active .qg-ovt-controls .volume a.vol-muted:visited {
+	background-position: left -54px;
+}
+.qg-ovt-active .qg-ovt-controls .volume a:hover,
+.qg-ovt-active .qg-ovt-controls .volume a.pressed:hover,
+.qg-ovt-active .qg-ovt-controls .volume a.vol-muted:hover,
+.qg-ovt-active .qg-ovt-controls .volume a.vol-low:hover,
+.qg-ovt-active .qg-ovt-controls .volume a.vol-medium:hover,
+.qg-ovt-active .qg-ovt-controls .volume a.vol-high:hover {
+	background-position: -44px -54px;
+}
+.qg-ovt-active .qg-ovt-controls .volume a.vol-low {
+	background-position: -88px -81px;
+}
+.qg-ovt-active .qg-ovt-controls .volume a.vol-medium {
+	background-position: -88px -108px;
+}
+.qg-ovt-active .cqgue-ovt-controls .volume a.vol-high {
+	background-position: -88px -135px;
+}
+
+
+.qg-ovt-active .qg-ovt-controls .fullscreen a,
+.qg-ovt-active .qg-ovt-controls .fullscreen a:visited {
+	background-position: -88px -189px;
+}
+.qg-ovt-active .qg-ovt-controls .fullscreen a.pressed,
+.qg-ovt-active .qg-ovt-controls .fullscreen a.pressed:visited {
+	background-position: left -189px;
+}
+.qg-ovt-active .qg-ovt-controls .fullscreen a:hover,
+.qg-ovt-active .qg-ovt-controls .fullscreen a.pressed:hover {
+	background-position: -44px -189px;
+}
+
+
+
+
+
+.qg-ovt-active .qg-ovt-controls .play {
+	padding-left: .5em;
+	padding-right: 1em;
+}
+
+.qg-ovt-active .qg-ovt-controls .progress,
+.qg-ovt-active .qg-ovt-controls .duration {
+	padding: 7px .5em;
+}
+.qg-ovt-active .qg-ovt-controls .progress {
+	/*width: 4.5em;*/
+	padding-left: 1em;
+	text-align: right;
+}/*
+.qg-ovt-active .qg-ovt-controls .duration {
+	width: 3.5em;
+}*/
+
+
+.qg-ovt-active .qg-ovt-alternatives {
+	border-top: 1px solid #777;
+	background: #fff url(../images/video/video-options-bg.png) center top repeat-x;
+	overflow: hidden;
+}
+.qg-ovt-active .qg-ovt-alternatives ul.qg-ovt-options {
+	position: relative;
+	overflow: hidden;
+}
+
+
+.qg-ovt-active .qg-ovt-options .transcript {
+	float: left;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.qg-ovt-active .qg-ovt-options .transcript a {
+	display: block;
+	text-decoration: none;
+	color: #000;
+	padding: .3em 1.5em .3em 2em;
+	margin: .5em;
+	display: block;
+	background: #fff url(../images/video/plus-flat.png) .7em .6em no-repeat;
+	border: 1px solid #999;
+}
+.qg-ovt-active .qg-ovt-options .transcript a.pressed {
+	background-image: url(../images/video/minus-flat.png);
+	padding-bottom: .85em;
+	border-bottom: none;
+	margin-bottom: 0;
+}
+.qg-ovt-active .qg-ovt-options .transcript a:hover {
+	background-color: #ffc;
+}
+
+.qg-ovt-active .qg-ovt-options .download {
+	float: right;
+	/*margin: .5em 6em .5em 9em;*//* margin-right of 6em only required if share button is present */
+	margin: .5em .5em .5em 9em;
+	border: 1px solid #aacee8;
+	background: #ebf4fa;
+	padding: .3em 0 0 1em;
+	overflow: hidden;
+	display: inline; /* Required to fix a bug that occurs in WebKit browsers when DOM manipulation occurs */
+}
+.qg-ovt-active .qg-ovt-options .download .label {
+	float: left;
+}
+.qg-ovt-active .qg-ovt-options .download ul {
+	float: right;
+	border-left: 1px solid #aacee8;
+	background: #fff;
+	overflow: hidden;
+	margin-top: -.3em;
+	margin-left: 1em;
+}
+
+
+
+.qg-ovt-active .qg-ovt-options .download ul li {
+	float: left;
+}
+.qg-ovt-active .qg-ovt-options .download ul li a {
+	padding: .3em .5em;
+	color: #555;
+	display: block;
+	background: transparent url(../images/video/video-download-separator.png) right center no-repeat;
+}
+.qg-ovt-active .qg-ovt-options .download ul li a.keyboard-focus {
+	padding: .15em .37em;
+	outline: none;
+	border: 2px solid #f8be4c;
+}
+.qg-ovt-active .qg-ovt-options .download ul li.last-child a {
+	background: transparent;
+}
+.qg-ovt-active .qg-ovt-options .download ul li a:hover {
+	background-color: #ffc;
+	color: #00f;
+}
+/* Mask elements of the link text that are visually hidden (but still semantically present for assistive technologies) */
+.qg-ovt-active .qg-ovt-options .download a span {
+	position: absolute;
+    left: -9999px;
+	border: none; outline: none;
+}
+
+
+
+
+/*
+.qg-ovt-active .qg-ovt-options .share {
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin: .5em;
+}
+
+.qg-ovt-active .qg-ovt-options .share a {
+	text-decoration: none;
+	color: #fff;
+	padding: .3em 1em;
+	display: block;
+	background: #3e3e3e url(../images/video/video-share-bg.png) left top repeat-x;
+	border: 1px solid #343434;
+}
+.qg-ovt-active .qg-ovt-options .share a:hover {
+	background: #395232 url(../images/video/video-share-bg-hover.png) left top repeat-x;
+	border: 1px solid #2d4128;
+}*/
+
+.qg-ovt-active .qg-ovt-transcript {
+	background: #fff;
+	margin: 0 1px;
+	clear: both;
+	overflow: hidden;
+}
+.qg-ovt-active .qg-ovt-transcript .qg-ovt-inner {
+	padding: .5em;
+}
+
+
+/* Sliders */
+	.qg-ovt-active .qg-ovt-controls li.progress-bar {
+		padding: 0;
+		margin: 11px 0 14px;
+		width: 290px;
+		background: #000 url(../images/video/video-progress-bg.png) left center repeat-x ;
+	}
+	.qg-ovt-active .qg-ovt-controls .ui-widget-header {
+		background: transparent url(../images/video/video-progress-playing-bg.png) left center repeat-x;
+	}
+	.qg-ovt-active .qg-ovt-controls .progress-bar .ui-slider-handle {
+		background: transparent url(../images/video/video-scrubber-horiz-alpha-trans.png) 50% 50% no-repeat !important;
+		overflow: visible !important;
+		width: 1.5em;
+		height: 1.5em;
+		margin-top: -.1em;
+		margin-left: -.75em;
+		cursor: pointer;
+	}
+	.qg-ovt-active .qg-ovt-controls .progress-bar.ui-state-disabled .ui-slider-handle {
+		cursor: default;
+	}
+	.qg-ovt-active .qg-ovt-controls .progress-bar .load-progress {
+		background: #8deaf4 url(../images/video/video-progress-loading-bg.png) left center repeat-x;
+		font-size: 0.7em;
+		position: absolute;
+		z-index: 0;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+	
+	
+	
+	.qg-ovt-active .ui-state-focus,
+	.qg-ovt-active .ui-state-hover,
+	.qg-ovt-active .ui-state-default {
+		outline: none;
+		border: none;
+		background: none;
+	}
+	.qg-ovt-active .qg-ovt-controls,
+	.qg-ovt-active .qg-ovt-controls ul,
+	.qg-ovt-active .qg-ovt-controls .volume {
+		position: relative;
+		overflow: visible;
+	}
+	.qg-ovt-active .qg-ovt-controls .volume-overlay {
+		height: 12em;
+		width: 3em;
+		padding: 2em 1em 1em;
+		background: #efefef;
+		position: absolute;
+		left: -1em;
+		top: -14.9em;
+		z-index: 5;
+	}
+	.qg-ovt-active .qg-ovt-controls .volume-slider {
+		height: 10em;
+		margin: auto;
+	}
+	.qg-ovt-active .qg-ovt-controls .volume-slider .ui-slider-range {
+		background: #3170a3;
+	}
+	.qg-ovt-active .qg-ovt-controls .volume-slider .ui-slider-handle {
+		background: transparent url(../images/video/video-scrubber-vert-alpha-trans.png) 50% 50% no-repeat !important;
+		overflow: visible !important;
+		width: 1.5em;
+		height: 1.5em;
+		margin-bottom: -.75em;
+		margin-left: -.1em;
+		cursor: pointer;
+	}
+}
+
+@media print {
+	.qg-ovt-active .qg-ovt-player,
+	.qg-ovt-active .qg-ovt-alternatives .qg-ovt-options {
+		display: none;
+	}
+	
+	.qg-ovt-active .qg-ovt-transcript {
+		display: block !important;
+	}
+}

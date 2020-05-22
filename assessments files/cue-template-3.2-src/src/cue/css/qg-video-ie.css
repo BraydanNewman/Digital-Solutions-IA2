@@ -1,0 +1,58 @@
+@media screen,projection,tv,handheld {
+.qg-ovt-active .qg-ovt-options .download {
+	width: 290px; /* This value must be dynamically set based on number of items within */
+	display: inline; /* Double margin bug */
+}
+.qg-ovt-active .qg-ovt-options .download ul {
+	_margin-left: 0; /* IE6 just gets this plain wrong. Reset to 0 to compensate */
+}
+
+.qg-ovt-active .qg-ovt-options .transcript {
+	_bottom: -1px;
+}
+
+.qg-ovt-active .qg-ovt-options ul,
+.qg-ovt-active .qg-ovt-alternatives {
+	_zoom: 1; /* IE6 peekaboo bug */
+}
+
+.qg-ovt-active .qg-ovt-alternatives ul.qg-ovt-options {
+	_zoom: 1; /* IE6 doesn't apply position relative properly without this */
+}
+
+.qg-ovt-active .qg-ovt-transcript {
+	_zoom: 1; /* IE6 applies a margin top on .qg-ovt-transcript without this */
+}
+
+
+.qg-ovt-active .qg-ovt-controls ul {
+	/* IE 6 & 7 won't contain the floats */
+	*float: none;
+	*overflow: visible;
+	*zoom: 0;
+	*min-height: 38px; /* IE7 */
+	_height: 38px; /* IE6 */
+}
+
+/* Clearfix for IE */
+.qg-ovt-active .qg-ovt-controls ul {
+	zoom: 1;     /* triggers hasLayout */
+    display: block;     /* resets display for IE/Win */
+}
+
+.qg-ovt-active .qg-ovt-controls .progress-bar .ui-slider-handle {
+	margin-top: 0; /* IE6/7 needs nudging */
+}
+.qg-ovt-active .qg-ovt-controls .volume-slider .ui-slider-handle {
+	margin-left: 0; /* IE6/7 needs nudging */
+}
+
+
+/*
+	IE6 & 7 don't support outline, give them border instead.
+
+.qg-ovt-active .qg-ovt-controls a.keyboard-focus,
+.qg-ovt-active .qg-ovt-options a.keyboard-focus {
+	border: 2px solid #f8be4c;
+}*/
+}

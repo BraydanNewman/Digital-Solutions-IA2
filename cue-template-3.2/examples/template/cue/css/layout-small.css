@@ -1,0 +1,41 @@
+@media screen,projection,tv,handheld {
+/* layout-small - < 800 small screen single column */
+	
+	#access a {
+		position: static;
+	}
+	/* Consistent layout margins */
+	#nav-section .box-sizing,
+	#page-feedback form {
+		margin: 0 0 .7em;
+	}
+	#document-properties .box-sizing,
+	#post-page-options ul,
+	.article .box-sizing {
+		margin: 0;
+	}
+	
+	#breadcrumbs,
+	.article,
+	.aside,
+	#nav-section,
+	#content-container,
+	#document-properties,
+	#post-page-options,
+	#page-feedback {
+		width: 100%;
+	}
+	
+	#nav-section .box-sizing,
+	.aside .box-sizing,
+	.article .box-sizing,
+	#document-properties {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	
+	#fat-footer .section {
+		width: 12em;
+		margin-right: 1em;
+	}
+}

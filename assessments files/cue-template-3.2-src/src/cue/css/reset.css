@@ -1,0 +1,98 @@
+/* reset.css - do not disturb - see reset docs */
+	body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
+	form,fieldset,input,textarea,p,blockquote,th,td {
+		margin: 0;
+		padding: 0;
+	}
+	input, textarea, select {
+		margin: 0;
+	}
+
+/* reset block elements */
+	body {
+		line-height: 1.5;
+		font-size: 100%;
+		vertical-align: baseline;
+		background-color: #fff;
+		color: #000;
+	}
+	dd {
+		margin-left: 2em;
+	}
+	blockquote {
+		margin-left: 2em;
+		margin-right: 2em;
+	}
+	/* Vertical rhythm */
+	p, ul, ol, dl, blockquote {
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+
+/* reset lists */
+	ul, ol {
+		display: block;
+		list-style-type: disc;
+		list-style-position: outside;
+		margin: 1em 0;
+		padding: 0 0 0 2em;
+	}
+	ol {
+		list-style-type: decimal;
+		list-style-position: outside;
+	}
+	li {
+		display: list-item;
+	}
+	/* nested lists have no top/bottom margins */
+	ul ul, ul ol, ul dl,
+	ol ul, ol ol, ol dl,
+	dl ul, dl ol, dl dl {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	/* 2 deep unordered lists use a circle */
+	ol ul, ul ul {
+		list-style-type: circle;
+	}
+	/* 3 deep (or more) unordered lists use a square */
+	ol ol ul, ol ul ul,
+	ul ol ul, ul ul ul {
+		list-style-type: square;
+	}
+
+/* reset tables */
+	table {
+		border-spacing: 0;
+		border-collapse: collapse;
+		text-indent: 0;
+	}
+	caption {
+		padding: 0;
+		text-align: center;
+	}
+	td, th { 
+		display: table-cell;
+		vertical-align: top;
+		text-align: left;
+		padding: .2em .5em;
+		font-weight: normal;
+		border: 1px solid #000;
+	}
+	
+/* reset media */
+	img {
+		border: none;
+	}
+
+/* link colours */
+	a, a:link {
+		color: #06c;
+	}
+	a:visited {
+		color: #80b;
+	}
+	a:active {
+		color: #c00;
+	}
+	

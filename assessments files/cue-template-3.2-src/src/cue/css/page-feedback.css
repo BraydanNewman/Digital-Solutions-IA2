@@ -1,0 +1,13 @@
+/* Page feedback form */
+#page-feedback form ol.options li {
+	float: left;
+	clear: none;
+	padding: 0 2em 0 0;
+}
+#page-feedback form .textarea textarea {
+	width: 99%;
+}
+#page-feedback form {
+	padding: .1em 1em 1em;
+	overflow: hidden;
+}

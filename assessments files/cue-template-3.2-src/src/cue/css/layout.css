@@ -1,0 +1,383 @@
+/* shared layout */
+	#breadcrumbs,
+	.article {
+		clear: both;
+	}
+	/* hide from visual browsers */
+	#access h2,
+	#header h2:first-child,
+	#search-form label,
+	#nav-site h2,
+	#breadcrumbs h2,
+	#footer h2 {
+		position: absolute;
+		left: -9999px;
+		width: 990px;
+	}
+
+/* navigation menus */
+	#access,
+	#tools,
+	#nav-site ul,
+	#breadcrumbs ol,
+	#footer ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+	#tools li,
+	#nav-site li,
+	#breadcrumbs li,
+	#footer li {
+		display: block;
+		float: left;
+		padding: .2em .5em;
+	}
+	#nav-site li {
+		padding: .3em .5em;
+	}
+	
+	#footer li {
+		float: none;
+		display: inline-block;
+	}
+	#breadcrumbs li.last-child {
+		padding: .5em 1em .5em 1.5em;
+		white-space: nowrap;
+	}
+	#tools a,
+	#nav-site a,
+	#breadcrumbs a,
+	#footer a,
+	#footer #fat-footer a {
+		display: block;
+		white-space: nowrap;
+		padding: .2em .5em .3em;
+	}
+	#footer a {
+		display: inline;
+	}
+	
+	#nav-site a {
+		padding: .3em 1em;
+	}
+
+/* document properties */
+	#document-properties dl {
+		display: block;
+		overflow: hidden;
+	}
+	#document-properties dt,
+	#document-properties dd {
+		font-weight: normal;
+		margin: 0 .5em 0 0;
+		padding: 0;
+	}
+	#document-properties dt {
+		clear: left;
+		float: left;
+	}
+
+
+@media screen,projection,tv,handheld {
+/* screen layout */
+	body {
+		text-align: center;
+	}
+	#header {
+		position: relative;
+	}
+	#header,
+	#nav-site,
+	#page-container {
+		text-align: left;
+		clear: both;
+	}
+	#nav-site {
+		clear: both;
+		overflow: hidden;
+	}
+	
+	/* max-width for all columns */
+	#header .box-sizing,
+	#page-container,
+	#nav-site,
+	#fat-footer {
+		padding: 0 .7em;
+	}
+	.max-width {
+		max-width: 82em;
+		margin: 0 auto;
+		/*overflow: hidden;*/
+	}
+	
+	#page-container {
+		clear: both;
+		position: relative;
+		overflow: hidden;
+		padding-top: .5em;
+		padding-bottom: 1em;
+	}
+	
+	#nav-section,
+	.article,
+	.aside,
+	#content-container {
+		float: left;
+		position: relative;
+	}
+	#content-container {
+		float: right;
+	}
+	
+	/* Setup box-model */
+	#nav-section .box-sizing,
+	.aside .box-sizing,
+	.article .box-sizing,
+	#breadcrumbs ol {
+		overflow: hidden;
+	}
+	
+	
+	
+	/* Consistent layout padding/margins */
+	#nav-section .box-sizing,
+	.aside .box-sizing,
+	.article .box-sizing,
+	#document-properties .box-sizing {
+		padding: 0 1em .5em;
+		overflow: hidden;
+	}
+	.article .box-sizing {
+		padding-bottom: 1em;
+	}
+	#breadcrumbs ol {
+		margin: 0;
+	}
+	.article,
+	#document-properties {
+		margin: .7em 0 0;
+	}
+	.aside .box-sizing {
+		margin: .7em 0 0;
+	}
+	
+	
+/* Clearing */
+	#document-properties {
+		clear: both;
+	}
+	#footer .box-sizing {
+		clear: both;
+		line-height: 1;
+	}
+	
+/* header */
+	#header {
+		position: relative;
+	}
+	#header .max-width {
+		min-height: 105px;
+		overflow: hidden;
+	}
+	#header a img {
+		border: none;	
+	}
+
+/* Logo and site name */
+	#qg-coa {
+		margin-top: 12px;
+		margin-right: 2em;
+	}
+	#qg-coa,
+	#qg-coa a {
+		float: left;
+		clear: left;
+	}
+	#qg-coa img {
+		width: 287px;
+		height: 50px;
+		display: block;
+	}
+	#site-name {
+		margin-top: 7px;
+		margin-bottom: 5px;
+		margin-right: 2em;	
+	}
+	#site-name,
+	#site-name a {
+		float: left;
+		clear: left;
+	}
+	#site-name img {
+		height: 28px;
+		display: block;
+	}
+	#qg-coa,
+	#site-name {
+		margin-left: 5px;
+		line-height: 1;
+	}
+	
+/* Utilities */	
+	#tools {
+		float: right;
+		overflow: hidden;
+		display: block;
+	}
+	#tools a:link,
+	#tools a:visited {
+		text-decoration: none;
+	}
+	#tools a:hover {
+		text-decoration: underline;
+	}
+	#tools form {
+		text-align: left;
+	}
+	#tools
+	#search-form {
+		padding-left: .5em;
+	}
+	#search-query {
+		padding: .1em .2em;
+	}
+	
+	
+	
+/* Footer */
+	#footer .box-sizing {
+		padding: 1em;
+	}
+	#fat-footer {
+		text-align: left;
+	}
+	#fat-footer .box-sizing {
+		padding: 2em 1em;
+		overflow: hidden;
+	}
+	#fat-footer ul {
+		margin: 0; padding: 0;
+	}
+	#fat-footer .section {
+		float: left;
+		padding-top: 0;
+	}
+	#fat-footer h3 {
+		font-size: 110%;
+		margin: 0;
+		padding-top: 1em;
+	}
+	#fat-footer li {
+		background: none;
+		padding: 0;
+		display: block;
+	}
+	#footer #fat-footer .max-width a {
+		padding-left: .2em;
+		padding-right: .2em;
+		white-space: normal;
+	}
+	#languages {
+		width: 20em;
+		text-align: left;
+	}
+
+/* Hide print content */
+	.print-link-url,
+	#qg-coa img.print-version,
+	#site-name img.print-version {
+		display: none;
+	}
+}
+
+
+@media print {
+	
+	/* Some landmark headings should be visible */
+	#breadcrumbs h2 {
+		position: static;
+	}
+	
+	/* Hide sections that are not to print */
+	#access,
+	#browser,
+	#tools,
+	#nav-site,
+	#nav-section,
+	#fat-footer,
+	.page-options,
+	#footer li {
+		display: none;
+	}
+	
+	/* Swap in print logo and site name */
+	#qg-coa img,
+	#site-name img {
+		display: none;
+	}
+	#qg-coa img.print-version,
+	#site-name img.print-version {
+		display: block;
+	}
+	#qg-coa img.print-version {
+		display: block;
+		height: 27mm;
+		margin-left: 155mm;
+	}
+	
+	
+	/* Show legal information */
+	#footer li.legal {
+		display: block;
+		margin: 0; padding: 0;
+	}
+	#footer a {
+		display: inline;
+		margin: 0; padding: 0;
+	}
+	
+	/* Print link URLs */
+	.print-link-url {
+		display: inline;
+		text-decoration: none;
+		font-size: 100%;
+	}
+	.print-link-url,
+	a,
+	a:link,
+	a:visited {
+		color: blue;
+	}
+	
+	/* Style breadcrumbs */
+	#breadcrumbs h2 {
+		font-size: 100%;
+		display: inline;
+		font-weight: normal;
+	}
+	#breadcrumbs ol,
+	#breadcrumbs li,
+	#breadcrumbs li.last-child,
+	#breadcrumbs a {
+		text-decoration: none;
+		color: black;
+		display: inline;
+		margin: 0;
+		padding: 0;
+		float: none;
+	}
+	#breadcrumbs a:after {
+		content: " > ";
+	}
+	
+	/* A few simple lines */
+	#header {
+		border-bottom: 1px solid #000;
+		margin-bottom: 1em;
+	}
+	#footer {
+		border-top: 1px solid #000;
+		padding-top: 1em;
+	}
+}

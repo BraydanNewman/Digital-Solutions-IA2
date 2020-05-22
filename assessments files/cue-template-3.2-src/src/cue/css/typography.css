@@ -1,0 +1,117 @@
+/* typography */
+	body {
+		font-family: Verdana, Helvetica, Arial, sans-serif;
+		font-size: 100%;
+		line-height: 1.5;
+		color: #000;
+		background: #fff;
+	}
+	.article,
+	#tools,
+	#nav-site ul,
+	#nav-section,
+	.aside,
+	#document-properties,
+	#post-page-options,
+	#page-feedback {
+		font-size: 80%;
+	}
+	#nav-site ul ul {
+		font-size: 100%; /* Stop font-size above from cascading */
+	}
+	
+	.article .caption,
+	#footer .max-width .box-sizing {
+		font-size: 75%;
+	}
+	#breadcrumbs {
+		font-size: 75%;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+	}
+	h1, h2, h3, h4, h5, h6, dt, strong, caption, th {
+		font-weight: bold;
+	}
+	h1 {
+		font-size: 200%;
+		margin: .67em 0 0 0;
+	}
+	h2 {
+		font-size: 150%;
+		margin: .83em 0;
+	}
+	#header h2 {
+		font-size: 100%;
+	}
+	h3 {
+		font-size: 130%;
+		margin: 1em 0;
+	}
+	h4 {
+		font-size: 120%;
+		margin: 1.33em 0;
+	}
+	h5 {
+		font-size: 110%;
+		margin: 1.5em 0;
+	}
+	h6 {
+		font-size: 100%;
+		margin: 1.7em 0;
+	}
+	blockquote, q {
+		quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+	i, cite, em, var, dfn {
+		font-style: italic;
+	}
+	tt, code, kbd, samp, pre {
+		font-family: "Courier New", Courier, monospace;
+	}
+	pre {
+		display: block;
+		white-space: pre;
+		margin: 1em 0;
+	}
+	/* titles */
+	abbr, acronym {
+		border-bottom: 1px dotted #666;
+	}
+	
+	/* links */
+	a, a:link, a:visited, a:hover, a:focus {
+		text-decoration: underline;
+	}
+	/* Navigation links underlined on focus/hover only */
+	#tools a,
+	#tools a:link,
+	#tools a:visited,
+	#nav-site a,
+	#nav-site a:link,
+	#nav-site a:visited,
+	#nav-section a,
+	#nav-section a:link,
+	#nav-section a:visited,
+	#footer a,
+	#footer a:link,
+	#footer a:visited {
+		text-decoration: none;
+	}
+	
+	#tools a:hover,
+	#tools a:focus,
+	#nav-site a:hover,
+	#nav-site a:focus,
+	#nav-section a:hover,
+	#nav-section a:focus,
+	#footer a:hover,
+	#footer a:focus {
+		text-decoration: underline;
+	}
+	

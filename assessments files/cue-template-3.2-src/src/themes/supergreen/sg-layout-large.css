@@ -1,0 +1,22 @@
+@media screen,projection,tv,handheld {
+	#meta-wrapper {
+		width: 67%;
+	}
+	#meta-wrapper .meta-box-sizing {
+		margin-left: .7em;
+		margin-right: .7em;
+	}
+	.aside .box-sizing {
+		padding-right: 1.5em;
+	}
+	.aside .box-sizing,
+	.aside .box-sizing .border {
+		background: none;
+	}
+	
+	/* Reminder for IE7 and 8 */
+	#document-properties .box-sizing {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}

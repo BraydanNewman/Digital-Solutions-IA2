@@ -11,3 +11,9 @@ get_user_login_sql = '''
     FROM users
     WHERE username == ?
 '''
+
+get_user_login_sql_id = '''
+    SELECT username, AlternateID
+    FROM users
+    WHERE user_id == ?
+'''

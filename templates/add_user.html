@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block section_heading %}
+    <h2>Sign Up</h2>
+{% endblock %}
+
+{% block content %}
+    <form action="/sign_up" method="post">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Password:</label><br>
+        <input type="text" id="password" name="password">
+        <input type="submit" value="login" name="type">
+        <input type="submit" value="add_user" name="type">
+    </form>
+{% endblock %}
+
+{% block title %}
+    <title>Login</title>
+{% endblock %}

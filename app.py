@@ -1,41 +1,31 @@
-from flask import render_template, Flask, sessions, request, redirect, url_for
+from os import path
 import requests
+import time
+from flask import render_template, Flask, sessions, request
+from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, UserMixin
-from sqlalchemy import ForeignKey
-from sqlalchemy.orm import relationship
+from passlib.hash import pbkdf2_sha256
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database\\food_truck.sqlite'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/food_truck.sqlite'
 app.config['SECRET_KEY'] = 'secret_key'
-
 
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+from tables import User
+if path.exists('database/food_truck.sqlite'):
+    db.create_all()
+    while not path.exists('database/food_truck.sqlite'):
+        time.sleep(3)
 
-class User(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True, nullable=False)
-    username = db.Column(db.String(30), unique=True, nullable=False)
-    password = db.Column(db.String, nullable=False)
-    truck_owner = db.Column(db.Integer)
-    owner_truck_name = db.Column(db.String)
-    # comment = relationship("Comments")
-    # vote = relationship("Votes")
-    
-
-class Comments(db.Model):
-    id = db.Column(db.Integer, primary_key=True, nullable=False)
-    # user_id = db.Column(db.Integer, ForeignKey('User.id'))
-
-
-class Votes(db.Model):
-    id = db.Column(db.Integer, primary_key=True, nullable=False)
-    # user_id = db.Column(db.Integer, ForeignKey("User.id"))
-    truck_id = db.Column(db.Integer, nullable=False)
-    rating = db.Column(db.Integer, nullable=False)
+if User.query.filter_by(username='admin').first() is None:
+    password_hash = pbkdf2_sha256.hash("admin")
+    admin = User(username='admin', password=password_hash, rank="admin")
+    db.session.add(admin)
+    db.session.commit()
 
 
 @login_manager.user_loader
@@ -44,7 +34,7 @@ def load_user(user_id):
 
 
 def api_data_clean():
-    url = "https://www.bnefoodtrucks.com.au/api/1/trucks"
+    url = "http://www.bnefoodtrucks.com.au/api/1/trucks"
     data = requests.get(url)
     sessions['trucks'] = data.json()
 
@@ -57,7 +47,17 @@ def hello():
 @app.route('/add_user', methods=['POST'])
 def add_user():
     username = request.form['username']
+    if User.query.filter_by(username='missing').first() is None:
+        pass
+
     password = request.form['password']
+
+    if request.form['own_truck'] == "yes":
+        truck_name = request.form['food_truck']
+
+    user = User.query.filter_by(username=username).first()
+
+
 
     user = User.query.filter_by(username=username).first()
 
@@ -93,6 +93,4 @@ def sign_up():
 
 
 if __name__ == "__main__":
-    db.create_all()
-    db.session.commit()
     app.run(debug=True)

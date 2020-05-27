@@ -1,8 +1,8 @@
 from os import path
 import requests
 import time
-from flask import render_template, Flask, sessions, request
-from flask_login import LoginManager
+from flask import render_template, Flask, sessions, request, flash
+from flask_login import LoginManager, login_user
 from flask_sqlalchemy import SQLAlchemy
 from passlib.hash import pbkdf2_sha256
 
@@ -48,25 +48,20 @@ def hello():
 def add_user():
     username = request.form['username']
     if User.query.filter_by(username='missing').first() is None:
-        pass
-
-    password = request.form['password']
-
-    if request.form['own_truck'] == "yes":
-        truck_name = request.form['food_truck']
-
-    user = User.query.filter_by(username=username).first()
-
-
-
-    user = User.query.filter_by(username=username).first()
-
-    print(user)
-
-    user = User(username=username, password=password)
-    db.session.add(user)
-    db.session.commit()
-    return render_template("base.html")
+        password = request.form['password']
+        user_password_hash = pbkdf2_sha256.hash(password)
+        if request.form['own_truck'] == "yes":
+            truck_name = request.form['food_truck']
+            user = User(username=username, password=user_password_hash, owner_truck_name=truck_name)
+        else:
+            user = User(username=username, password=user_password_hash)
+        db.session.add(user)
+        db.session.commit()
+        flash('You were successfully signed up')
+        return render_template("login.html")
+    else:
+        flash('That username already exists')
+        return render_template("add_user.html")
 
 
 @app.route('/login', methods=['POST'])
@@ -76,10 +71,15 @@ def login():
         return render_template('add_user.html')
 
     username = request.form['username']
-    password = request.form['password']
     user = User.query.filter_by(username=username).first()
-
-    return render_template('base.html')
+    if user is not None:
+        password = request.form['password']
+        if pbkdf2_sha256.verify(password, user.password):
+            login_user(user)
+            flash("You where successfully logged in")
+            return render_template('base.html')
+    flash("Username or Password was incorrect")
+    return render_template("login.html")
 
 
 @app.route('/main')

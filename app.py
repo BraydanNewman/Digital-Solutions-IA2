@@ -42,8 +42,9 @@ def api_data_database():
         db.session.query(Trucks).delete()
         db.session.commit()
     for item in lol:
-        me = Trucks(api_key=item["truck_id"], name=item["name"], category=item["category"])
-        db.session.add(me)
+        if item["category"] != "":
+            me = Trucks(api_key=item["truck_id"], name=item["name"], category=item["category"])
+            db.session.add(me)
     db.session.commit()
 
 
@@ -53,21 +54,37 @@ def api_data():
     return data.json()
 
 
+def truck_cul():
+    for value in db.session.query(Trucks.category).distinct():
+        if Trucks.query.filter_by(category=value[0]).count() < 3:
+            Trucks.query.filter_by(category=value[0]).delete()
+    db.session.commit()
+    if db.session.query(Trucks.category).distinct().count() > 5:
+        cats = {}
+        for value in db.session.query(Trucks.category).distinct():
+            num = Trucks.query.filter_by(category=value[0]).count()
+            cats[value[0]] = num
+        final = min(cats.items(), key=lambda x: x[1])
+        Trucks.query.filter_by(category=final[0]).delete()
+        db.session.commit()
+
+
 @app.route('/')
 def hello():
     api_data_database()
     data = api_data()
+    truck_cul()
     return render_template('main.html', data=data)
 
 
 @app.route('/add_user', methods=[ 'POST' ])
 def add_user():
-    username = request.form[ 'username' ]
+    username = request.form['username']
     if User.query.filter_by(username=username).first() is None:
-        password = request.form[ 'password' ]
+        password = request.form['password']
         user_password_hash = pbkdf2_sha256.hash(password)
-        if request.form[ 'own_truck' ] == "yes":
-            truck_name = request.form[ 'food_truck' ]
+        if request.form['own_truck'] == "yes":
+            truck_name = request.form['food_truck']
             user = User(username=username, password=user_password_hash, owner_truck_name=truck_name)
         else:
             user = User(username=username, password=user_password_hash)

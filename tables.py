@@ -20,3 +20,10 @@ class Votes(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     truck_id = db.Column(db.Integer, nullable=False)
     rating = db.Column(db.Integer, nullable=False)
+
+
+class Trucks(db.Model):
+    id = db.Column(db.Integer, primary_key=True, nullable=False)
+    api_key = db.Column(db.Integer, nullable=False)
+    name = db.Column(db.String, nullable=False)
+    category = db.Column(db.String, nullable=False)

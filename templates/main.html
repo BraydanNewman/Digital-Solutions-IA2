@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block section_heading %}
+    <h2>Food Trucks</h2>
+{% endblock %}
+
+{% block content %}
+        {% for value in data %}
+            <div>
+                <h3>{{ value['name'] }}</h3>
+                <img src="{{ value['avatar']['src'] }}" alt="{{ value['name'] }}">
+            </div>
+        {% endfor %}
+{% endblock %}
+
+{% block title %}
+    <title>Food Trucks</title>
+{% endblock %}

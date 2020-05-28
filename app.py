@@ -8,14 +8,15 @@ from passlib.hash import pbkdf2_sha256
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/food_truck.sqlite'
-app.config['SECRET_KEY'] = 'secret_key'
+app.config[ 'SQLALCHEMY_DATABASE_URI' ] = 'sqlite:///database/food_truck.sqlite'
+app.config[ 'SECRET_KEY' ] = 'secret_key'
 
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-from tables import User
+from tables import User, Trucks
+
 if path.exists('database/food_truck.sqlite'):
     db.create_all()
     while not path.exists('database/food_truck.sqlite'):
@@ -33,25 +34,40 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-def api_data_clean():
-    url = "http://www.bnefoodtrucks.com.au/api/1/trucks"
+def api_data_database():
+    url = "https://www.bnefoodtrucks.com.au/api/1/trucks"
     data = requests.get(url)
-    sessions['trucks'] = data.json()
+    lol = data.json()
+    if db.session.query(Trucks).count() > 0:
+        db.session.query(Trucks).delete()
+        db.session.commit()
+    for item in lol:
+        me = Trucks(api_key=item["truck_id"], name=item["name"], category=item["category"])
+        db.session.add(me)
+    db.session.commit()
+
+
+def api_data():
+    url = "https://www.bnefoodtrucks.com.au/api/1/trucks"
+    data = requests.get(url)
+    return data.json()
 
 
 @app.route('/')
 def hello():
-    return render_template('login.html')
+    api_data_database()
+    data = api_data()
+    return render_template('main.html', data=data)
 
 
-@app.route('/add_user', methods=['POST'])
+@app.route('/add_user', methods=[ 'POST' ])
 def add_user():
-    username = request.form['username']
-    if User.query.filter_by(username='missing').first() is None:
-        password = request.form['password']
+    username = request.form[ 'username' ]
+    if User.query.filter_by(username=username).first() is None:
+        password = request.form[ 'password' ]
         user_password_hash = pbkdf2_sha256.hash(password)
-        if request.form['own_truck'] == "yes":
-            truck_name = request.form['food_truck']
+        if request.form[ 'own_truck' ] == "yes":
+            truck_name = request.form[ 'food_truck' ]
             user = User(username=username, password=user_password_hash, owner_truck_name=truck_name)
         else:
             user = User(username=username, password=user_password_hash)
@@ -64,16 +80,16 @@ def add_user():
         return render_template("add_user.html")
 
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=[ 'POST' ])
 def login():
-    selection_type = request.form['type']
+    selection_type = request.form[ 'type' ]
     if selection_type == 'add_user':
         return render_template('add_user.html')
 
-    username = request.form['username']
+    username = request.form[ 'username' ]
     user = User.query.filter_by(username=username).first()
     if user is not None:
-        password = request.form['password']
+        password = request.form[ 'password' ]
         if pbkdf2_sha256.verify(password, user.password):
             login_user(user)
             flash("You where successfully logged in")
@@ -85,11 +101,6 @@ def login():
 @app.route('/main')
 def main():
     return 'Hello, World!'
-
-
-@app.route('/sign_up', methods=['POST', 'GET'])
-def sign_up():
-    return
 
 
 if __name__ == "__main__":

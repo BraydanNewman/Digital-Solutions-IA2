@@ -1,0 +1,22 @@
+#content-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.truck {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    text-align: center;
+    margin: 5px;
+    padding: 10px;
+    background: #eaeaea;
+}
+
+.content_header {
+    text-align: center;
+}
+
+.content_header h1 {
+    text-align: left;
+}

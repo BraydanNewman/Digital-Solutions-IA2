@@ -6,10 +6,12 @@
 
 {% block content %}
         {% for value in data %}
-            <div>
-                <h3>{{ value['name'] }}</h3>
-                <img src="{{ value['avatar']['src'] }}" alt="{{ value['name'] }}">
-            </div>
+            <a href="{{ url_for('option_truck' ,option=value["api_key"]) }}">
+                <div class="truck">
+                    <h3>{{ value['name'] }}</h3>
+                    <img src="{{ value['picture'] }}" alt="{{ value['name'] }}">
+                </div>
+            </a>
         {% endfor %}
 {% endblock %}
 

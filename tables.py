@@ -27,3 +27,4 @@ class Trucks(db.Model):
     api_key = db.Column(db.Integer, nullable=False)
     name = db.Column(db.String, nullable=False)
     category = db.Column(db.String, nullable=False)
+    picture = db.Column(db.String)

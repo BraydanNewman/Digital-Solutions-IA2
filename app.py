@@ -1,15 +1,17 @@
 from os import path
 import requests
 import time
-from flask import render_template, Flask, sessions, request, flash
+from flask import render_template, Flask, request, flash
 from flask_login import LoginManager, login_user
 from flask_sqlalchemy import SQLAlchemy
 from passlib.hash import pbkdf2_sha256
 
 app = Flask(__name__)
 
-app.config[ 'SQLALCHEMY_DATABASE_URI' ] = 'sqlite:///database/food_truck.sqlite'
-app.config[ 'SECRET_KEY' ] = 'secret_key'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/food_truck.sqlite'
+app.config['SECRET_KEY'] = 'secret_key'
+
+api_url = "https://www.bnefoodtrucks.com.au/api/1/trucks"
 
 db = SQLAlchemy(app)
 login_manager = LoginManager()
@@ -35,23 +37,17 @@ def load_user(user_id):
 
 
 def api_data_database():
-    url = "https://www.bnefoodtrucks.com.au/api/1/trucks"
-    data = requests.get(url)
-    lol = data.json()
+    data = requests.get(api_url)
+    final_data = data.json()
     if db.session.query(Trucks).count() > 0:
         db.session.query(Trucks).delete()
         db.session.commit()
-    for item in lol:
+    for item in final_data:
         if item["category"] != "":
-            me = Trucks(api_key=item["truck_id"], name=item["name"], category=item["category"])
+            me = Trucks(api_key=item["truck_id"], name=item["name"], category=item["category"],
+                        picture=item['avatar']['src'])
             db.session.add(me)
     db.session.commit()
-
-
-def api_data():
-    url = "https://www.bnefoodtrucks.com.au/api/1/trucks"
-    data = requests.get(url)
-    return data.json()
 
 
 def truck_cul():
@@ -69,15 +65,24 @@ def truck_cul():
         db.session.commit()
 
 
+def selected_truck(selected_id):
+    data = requests.get(api_url)
+    final_data = data.json()
+    for item in final_data:
+        if item["truck_id"] == selected_id:
+            return item
+    return "error"
+
+
 @app.route('/')
 def hello():
     api_data_database()
-    data = api_data()
     truck_cul()
+    data = Trucks.query.all()
     return render_template('main.html', data=data)
 
 
-@app.route('/add_user', methods=[ 'POST' ])
+@app.route('/add_user', methods=['POST'])
 def add_user():
     username = request.form['username']
     if User.query.filter_by(username=username).first() is None:
@@ -97,16 +102,16 @@ def add_user():
         return render_template("add_user.html")
 
 
-@app.route('/login', methods=[ 'POST' ])
+@app.route('/login', methods=['POST'])
 def login():
-    selection_type = request.form[ 'type' ]
+    selection_type = request.form['type']
     if selection_type == 'add_user':
         return render_template('add_user.html')
 
-    username = request.form[ 'username' ]
+    username = request.form['username']
     user = User.query.filter_by(username=username).first()
     if user is not None:
-        password = request.form[ 'password' ]
+        password = request.form['password']
         if pbkdf2_sha256.verify(password, user.password):
             login_user(user)
             flash("You where successfully logged in")
@@ -115,9 +120,10 @@ def login():
     return render_template("login.html")
 
 
-@app.route('/main')
-def main():
-    return 'Hello, World!'
+@app.route('/option_trucks/<string:option>', methods=['POST', 'GET'])
+def option_truck(option):
+    data = selected_truck(option)
+    return render_template('truck.html', data=data)
 
 
 if __name__ == "__main__":

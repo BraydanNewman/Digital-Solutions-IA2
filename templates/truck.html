@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block section_heading %}
+    <h2>{{ data['name'] }}</h2>
+{% endblock %}
+
+{% block content %}
+    <div class="content_header">
+        <h1>{{ data['name'] }}</h1><br>
+        <img src="{{ data['cover_photo']['src'] }}" alt="Cover Photo">
+        <h6><q><b>"</b>{{ data['bio'] }}<b>"</b></q></h6>
+    </div>
+{% endblock %}
+
+{% block title %}
+    <title>Food Trucks</title>
+{% endblock %}

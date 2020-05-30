@@ -1,8 +1,8 @@
 from os import path
 import requests
 import time
-from flask import render_template, Flask, request, flash
-from flask_login import LoginManager, login_user
+from flask import render_template, Flask, request, flash, redirect, url_for
+from flask_login import LoginManager, login_user, current_user, login_required, logout_user
 from flask_sqlalchemy import SQLAlchemy
 from passlib.hash import pbkdf2_sha256
 
@@ -74,8 +74,13 @@ def selected_truck(selected_id):
     return "error"
 
 
+@app.route("/login_router")
+def login_router():
+    return render_template("login.html")
+
+
 @app.route('/')
-def hello():
+def main():
     api_data_database()
     truck_cul()
     data = Trucks.query.all()
@@ -95,8 +100,10 @@ def add_user():
             user = User(username=username, password=user_password_hash)
         db.session.add(user)
         db.session.commit()
+        login_user(user)
         flash('You were successfully signed up')
-        return render_template("login.html")
+
+        return redirect(url_for("main"))
     else:
         flash('That username already exists')
         return render_template("add_user.html")
@@ -107,7 +114,6 @@ def login():
     selection_type = request.form['type']
     if selection_type == 'add_user':
         return render_template('add_user.html')
-
     username = request.form['username']
     user = User.query.filter_by(username=username).first()
     if user is not None:
@@ -115,15 +121,22 @@ def login():
         if pbkdf2_sha256.verify(password, user.password):
             login_user(user)
             flash("You where successfully logged in")
-            return render_template('base.html')
+            return redirect(url_for("main"))
     flash("Username or Password was incorrect")
     return render_template("login.html")
 
 
-@app.route('/option_trucks/<string:option>', methods=['POST', 'GET'])
+@app.route('/option_truck/<string:option>', methods=['POST', 'GET'])
 def option_truck(option):
     data = selected_truck(option)
     return render_template('truck.html', data=data)
+
+
+@login_required
+@app.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for("main"))
 
 
 if __name__ == "__main__":

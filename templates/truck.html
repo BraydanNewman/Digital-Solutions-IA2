@@ -15,3 +15,18 @@
 {% block title %}
     <title>Food Trucks</title>
 {% endblock %}
+
+{% block top_nav %}
+    {% if current_user.is_authenticated %}
+        <h5 class="user">Hello {{ current_user.username }}</h5>
+    {% endif %}
+    <ul>
+        <li><a href="{{ url_for('main') }}">Home</a></li>
+        {% if current_user.is_authenticated %}
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+
+        {% else %}
+            <li><a href="{{ url_for('login_router') }}">Login</a></li>
+        {% endif %}
+    </ul>
+{% endblock %}

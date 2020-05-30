@@ -89,49 +89,8 @@
 <div id="nav-site">
     <div class="max-width">
         <h2>Site navigation</h2>
-        <ul>
-            <li><a href="index.html">Home</a>
-                <ul>
-                    <li><a href="#">Unordered list</a></li>
-                    <li><a href="#">Unordered list item 2</a></li>
-                    <li><a href="#">Unordered </a></li>
-                    <li><a href="#">Unordered list item 4</a></li>
-                </ul>
-            </li>
-            <li><a href="index.html">Menu item 2</a>
-                <ul>
-                    <li><a href="#">Unordered list item 2.1.1</a></li>
-                    <li><a href="#">Unordered list </a></li>
-                </ul>
-            </li>
-            <li><a href="index.html">Menu item 3</a>
-                <ul>
-                    <li><a href="#">Unordered</a></li>
-                    <li><a href="#">Unordered list item 2.2</a></li>
-                </ul>
-            </li>
-            <li><a href="index.html">Menu item 4</a></li>
-            <li><a href="index.html">Themes</a>
-                <ul>
-                    <li><a href="../template/xhtml-3column.html">Bare</a></li>
-                    <li><a href="../greyscale/xhtml-3column.html">Greyscale</a></li>
-                    <li><a href="../bluesteel/xhtml-3column.html">Blue Steel</a></li>
-                    <li><a href="../supergreen/xhtml-3column.html">Supergreen</a></li>
-                </ul>
-            </li>
-            <li><a href="index.html">Page models</a>
-                <ul>
-                    <li><a href="xhtml-1column.html">1 column</a></li>
-                    <li><a href="xhtml-2column.html">2 column</a></li>
-                    <li><a href="xhtml-3column.html">3 column</a></li>
-                    <li><a href="xhtml-text.html">Text content</a></li>
-                    <li><a href="xhtml-accessibility.html">Accessibility statement</a></li>
-                    <li><a href="xhtml-applications.html">Applications</a></li>
-                    <li><a href="xhtml-search-results.html">Search results</a></li>
-                    <li><a href="xhtml-video.html">Video</a></li>
-                </ul>
-            </li>
-        </ul>
+        {% block top_nav %}
+        {% endblock %}
     </div>
 </div>
 

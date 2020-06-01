@@ -1,15 +1,14 @@
 import time
-import webbrowser
-from time import sleep
-
 from selenium import webdriver
 
-url = 'https://andie.standrewscc.qld.edu.au/homepage/code/12DIGS'
+url = 'https://andie.standrewscc.qld.edu.au/homepage/8087'
 
-driver = webdriver.Chrome("D:/Downloads/chromedriver_win32/chromedriver.exe")
+driver = webdriver.Chrome("chromedriver.exe")
 driver.get(url)
 
 count = 0
+
+input()
 
 while True:
     count += 1

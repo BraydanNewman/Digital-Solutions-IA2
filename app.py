@@ -84,7 +84,7 @@ def main():
     api_data_database()
     truck_cul()
     data = Trucks.query.all()
-    return render_template('main2.0.html', data=data)
+    return render_template('main.2.0.html', data=data)
 
 
 @app.route('/add_user', methods=['POST'])

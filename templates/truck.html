@@ -10,6 +10,30 @@
         <img src="{{ data['cover_photo']['src'] }}" alt="Cover Photo">
         <h6><q><b>"</b>{{ data['bio'] }}<b>"</b></q></h6>
     </div>
+    <div class="create_comments">
+        <form action="">
+            <label>
+                <textarea maxlength='128'>
+
+                </textarea>
+            </label>
+                <div class="rate">
+                    <input type="radio" id="star5" name="rate" value="5" />
+                    <label for="star5" title="text">5 stars</label>
+                    <input type="radio" id="star4" name="rate" value="4" />
+                    <label for="star4" title="text">4 stars</label>
+                    <input type="radio" id="star3" name="rate" value="3" />
+                    <label for="star3" title="text">3 stars</label>
+                    <input type="radio" id="star2" name="rate" value="2" />
+                    <label for="star2" title="text">2 stars</label>
+                    <input type="radio" id="star1" name="rate" value="1" />
+                    <label for="star1" title="text">1 star</label>
+                </div>
+        </form>
+    </div>
+    <div class="comments">
+
+    </div>
 {% endblock %}
 
 {% block title %}
@@ -22,11 +46,17 @@
     {% endif %}
     <ul>
         <li><a href="{{ url_for('main') }}">Home</a></li>
+
         {% if current_user.is_authenticated %}
             <li><a href="{{ url_for('logout') }}">Logout</a></li>
-
         {% else %}
             <li><a href="{{ url_for('login_router') }}">Login</a></li>
+        {% endif %}
+
+        {% if current_user.rank == 'admin' %}
+            <li><a href="{{ url_for('stats') }}">Stats</a></li>
+        {% elif current_user.rank == 'truck' and data["truck_id"] == current_user.owner_truck_id %}
+            <li><a href="{{ url_for('stats') }}">Truck Stats</a></li>
         {% endif %}
     </ul>
 {% endblock %}

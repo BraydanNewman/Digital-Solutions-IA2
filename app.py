@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/food_truck.sqlite'
 app.config['SECRET_KEY'] = 'secret_key'
 
-api_url = "https://www.bnefoodtrucks.com.au/api/1/trucks"
+api_url = "http://www.bnefoodtrucks.com.au/api/1/trucks"
 
 db = SQLAlchemy(app)
 login_manager = LoginManager()
@@ -93,11 +93,7 @@ def add_user():
     if User.query.filter_by(username=username).first() is None:
         password = request.form['password']
         user_password_hash = pbkdf2_sha256.hash(password)
-        if request.form['own_truck'] == "yes":
-            truck_name = request.form['food_truck']
-            user = User(username=username, password=user_password_hash, owner_truck_name=truck_name)
-        else:
-            user = User(username=username, password=user_password_hash)
+        user = User(username=username, password=user_password_hash)
         db.session.add(user)
         db.session.commit()
         login_user(user)
@@ -130,6 +126,16 @@ def login():
 def option_truck(option):
     data = selected_truck(option)
     return render_template('truck.html', data=data)
+
+
+@app.route("/stats")
+def stats():
+    return render_template("stats.html")
+
+
+@app.route("/truck_stats")
+def truck_stats():
+    return render_template("truck_stats.html")
 
 
 @login_required

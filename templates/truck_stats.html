@@ -1,19 +1,14 @@
 {% extends "base.html" %}
 
 {% block section_heading %}
-    <h2>Food Trucks</h2>
+    <h2>{{ data['name'] }}</h2>
 {% endblock %}
 
 {% block content %}
-    <div class="list_trucks">
-        {% for value in data %}
-            <a href="{{ url_for('option_truck', option=value["api_key"]) }}">
-                <div class="truck">
-                    <h3>{{ value['name'] }}</h3>
-                    <img src="{{ value['picture'] }}" alt="{{ value['name'] }}">
-                </div>
-            </a>
-        {% endfor %}
+    <div class="content_header">
+        <h1>{{ data['name'] }}</h1><br>
+        <img src="{{ data['cover_photo']['src'] }}" alt="Cover Photo">
+
     </div>
 {% endblock %}
 
@@ -27,14 +22,11 @@
     {% endif %}
     <ul>
         <li><a href="{{ url_for('main') }}">Home</a></li>
+
         {% if current_user.is_authenticated %}
             <li><a href="{{ url_for('logout') }}">Logout</a></li>
-
         {% else %}
             <li><a href="{{ url_for('login_router') }}">Login</a></li>
-        {% endif %}
-        {% if current_user.rank == 'admin' %}
-            <li><a href="{{ url_for('stats') }}">Stats</a></li>
         {% endif %}
     </ul>
 {% endblock %}

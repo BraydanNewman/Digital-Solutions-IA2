@@ -7,7 +7,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(30), unique=True, nullable=False)
     password = db.Column(db.String, nullable=False)
     rank = db.Column(db.String)
-    owner_truck_name = db.Column(db.String)
+    owner_truck_id = db.Column(db.String)
 
 
 class Comments(db.Model):

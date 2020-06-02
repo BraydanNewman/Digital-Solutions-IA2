@@ -2,7 +2,7 @@ import time
 from selenium import webdriver
 import requests
 
-url = 'https://andie.standrewscc.qld.edu.au/homepage/8087'
+url = 'https://andie.standrewscc.qld.edu.au/homepage/code/12ENGIN11'
 
 driver = webdriver.Chrome("chromedriver.exe")
 driver.get(url)

@@ -18,6 +18,7 @@
                 </textarea>
             </label>
                 <div class="rate">
+                    <h5>Speed of Service</h5>
                     <input type="radio" id="star5" name="rate" value="5" />
                     <label for="star5" title="text">5 stars</label>
                     <input type="radio" id="star4" name="rate" value="4" />
@@ -41,9 +42,6 @@
 {% endblock %}
 
 {% block top_nav %}
-    {% if current_user.is_authenticated %}
-        <h5 class="user">Hello {{ current_user.username }}</h5>
-    {% endif %}
     <ul>
         <li><a href="{{ url_for('main') }}">Home</a></li>
 
@@ -59,4 +57,7 @@
             <li><a href="{{ url_for('stats') }}">Truck Stats</a></li>
         {% endif %}
     </ul>
+    {% if current_user.is_authenticated %}
+        <h5 class="user">Hello {{ current_user.username }}</h5>
+    {% endif %}
 {% endblock %}

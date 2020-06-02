@@ -13,6 +13,10 @@
     background: #eaeaea;
 }
 
+.truck:hover {
+    background: #cacaca;
+}
+
 .rate {
     float: left;
     height: 46px;
@@ -59,4 +63,5 @@
 
 .user {
     text-align: right;
+    margin: 0;
 }

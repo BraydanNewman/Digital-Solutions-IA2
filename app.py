@@ -76,6 +76,7 @@ def selected_truck(selected_id):
 
 @app.route("/login_router")
 def login_router():
+    flash('')
     return render_template("login.html")
 
 

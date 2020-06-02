@@ -5,35 +5,63 @@
 {% endblock %}
 
 {% block content %}
-    <div class="content_header">
-        <h1>{{ data['name'] }}</h1><br>
-        <img src="{{ data['cover_photo']['src'] }}" alt="Cover Photo">
-        <h6><q><b>"</b>{{ data['bio'] }}<b>"</b></q></h6>
-    </div>
-    <div class="create_comments">
-        <form action="">
-            <label>
-                <textarea maxlength='128'>
+    <div>
+        <div class="content_header">
+            <h1>{{ data['name'] }}</h1><br>
+            <img src="{{ data['cover_photo']['src'] }}" alt="Cover Photo">
+            <h6><q><b>"</b>{{ data['bio'] }}<b>"</b></q></h6>
+        </div>
+        <div class="create_comments">
+            <form action="">
+                <label>
+                    <textarea maxlength='128'>
 
-                </textarea>
-            </label>
+                    </textarea>
+                </label>
                 <div class="rate">
                     <h5>Speed of Service</h5>
-                    <input type="radio" id="star5" name="rate" value="5" />
+                    <input type="radio" id="star5" name="rate" value="5"/>
                     <label for="star5" title="text">5 stars</label>
-                    <input type="radio" id="star4" name="rate" value="4" />
+                    <input type="radio" id="star4" name="rate" value="4"/>
                     <label for="star4" title="text">4 stars</label>
-                    <input type="radio" id="star3" name="rate" value="3" />
+                    <input type="radio" id="star3" name="rate" value="3"/>
                     <label for="star3" title="text">3 stars</label>
-                    <input type="radio" id="star2" name="rate" value="2" />
+                    <input type="radio" id="star2" name="rate" value="2"/>
                     <label for="star2" title="text">2 stars</label>
-                    <input type="radio" id="star1" name="rate" value="1" />
+                    <input type="radio" id="star1" name="rate" value="1"/>
+                    <label for="star1" title="text">1 star</label>
+                </div><br>
+                <div class="rate">
+                    <h5>Quality and taste</h5>
+                    <input type="radio" id="star5" name="rate" value="5"/>
+                    <label for="star5" title="text">5 stars</label>
+                    <input type="radio" id="star4" name="rate" value="4"/>
+                    <label for="star4" title="text">4 stars</label>
+                    <input type="radio" id="star3" name="rate" value="3"/>
+                    <label for="star3" title="text">3 stars</label>
+                    <input type="radio" id="star2" name="rate" value="2"/>
+                    <label for="star2" title="text">2 stars</label>
+                    <input type="radio" id="star1" name="rate" value="1"/>
+                    <label for="star1" title="text">1 star</label>
+                </div><br>
+                <div class="rate">
+                    <h5>Value for money</h5>
+                    <input type="radio" id="star5" name="rate" value="5"/>
+                    <label for="star5" title="text">5 stars</label>
+                    <input type="radio" id="star4" name="rate" value="4"/>
+                    <label for="star4" title="text">4 stars</label>
+                    <input type="radio" id="star3" name="rate" value="3"/>
+                    <label for="star3" title="text">3 stars</label>
+                    <input type="radio" id="star2" name="rate" value="2"/>
+                    <label for="star2" title="text">2 stars</label>
+                    <input type="radio" id="star1" name="rate" value="1"/>
                     <label for="star1" title="text">1 star</label>
                 </div>
-        </form>
-    </div>
-    <div class="comments">
-
+            </form>
+        </div>
+        <div class="comments">
+            <h6>comments</h6>
+        </div>
     </div>
 {% endblock %}
 

@@ -18,9 +18,9 @@
 }
 
 .rate {
-    float: left;
     height: 46px;
     padding: 0 10px;
+
 }
 .rate:not(:checked) > input {
     position:absolute;
@@ -66,3 +66,13 @@
     margin: 0;
 }
 
+textarea {
+    width: 100%;
+    resize: none;
+    height: 100px;
+}
+
+.create_comments {
+    border: solid;
+    padding: 10px;
+}

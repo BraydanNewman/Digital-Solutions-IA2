@@ -61,6 +61,10 @@
     text-align: left;
 }
 
+.content_header img {
+    width: 100%;
+}
+
 .user {
     text-align: right;
     margin: 0;
@@ -75,4 +79,9 @@ textarea {
 .create_comments {
     border: solid;
     padding: 10px;
+}
+
+#content-container {
+    padding: 20px;
+    background: white;
 }

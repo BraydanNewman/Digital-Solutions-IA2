@@ -12,9 +12,8 @@
             <h6><q><b>"</b>{{ data['bio'] }}<b>"</b></q></h6>
         </div>
         <div class="create_comments">
-            <form action="">
+            <form action="/comment_create" method="post">
                 <div class="rate">
-                    <h5>Speed of Service</h5>
                     <input type="radio" id="star5_speed" name="speed" value="5"/>
                     <label for="star5_speed" title="text">5 stars</label>
                     <input type="radio" id="star4_speed" name="speed" value="4"/>
@@ -25,9 +24,9 @@
                     <label for="star2_speed" title="text">2 stars</label>
                     <input type="radio" id="star1_speed" name="speed" value="1"/>
                     <label for="star1_speed" title="text">1 star</label>
+                    <h5>Speed of Service</h5>
                 </div><br>
                 <div class="rate">
-                    <h5>Quality and taste</h5>
                     <input type="radio" id="star5_quality" name="quality" value="5"/>
                     <label for="star5_quality" title="text">5 stars</label>
                     <input type="radio" id="star4_quality" name="quality" value="4"/>
@@ -38,9 +37,9 @@
                     <label for="star2_quality" title="text">2 stars</label>
                     <input type="radio" id="star1_quality" name="quality" value="1"/>
                     <label for="star1_quality" title="text">1 star</label>
+                    <h5>Quality and taste</h5>
                 </div><br>
                 <div class="rate">
-                    <h5>Value for money</h5>
                     <input type="radio" id="star5_money" name="money" value="5"/>
                     <label for="star5_money" title="text">5 stars</label>
                     <input type="radio" id="star4_money" name="money" value="4"/>
@@ -51,13 +50,14 @@
                     <label for="star2_money" title="text">2 stars</label>
                     <input type="radio" id="star1_money" name="money" value="1"/>
                     <label for="star1_money" title="text">1 star</label>
+                    <h5>Value for money</h5>
                 </div><br><br>
                 <label>Comment:
-                    <textarea maxlength='128'>
-                        Comment here...
-                    </textarea>
+                    <textarea maxlength='128'></textarea>
                 </label><br><br>
-                <button type="submit">Submit</button>
+                <div class="submit">
+                    <button type="submit">Submit</button>
+                </div>
             </form>
         </div>
         <div class="comments">

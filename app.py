@@ -129,10 +129,13 @@ def option_truck(option):
     return render_template('truck.html', data=data)
 
 
-@app.route('comment_create', methods=[ 'POST', 'GET' ])
+@app.route('/comment_create', methods=[ 'POST', 'GET' ])
 @login_required
 def comment_create():
-    pass
+    speed = request.form["speed"]
+    quality = request.form["quality"]
+    money = request.form["money"]
+    return render_template("main.html")
 
 
 @app.route("/stats")

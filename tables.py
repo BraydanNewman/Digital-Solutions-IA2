@@ -19,7 +19,9 @@ class Comments(db.Model):
 class Votes(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     truck_id = db.Column(db.Integer, nullable=False)
-    rating = db.Column(db.Integer, nullable=False)
+    speed = db.Column(db.Integer)
+    quality = db.Column(db.Integer)
+    money = db.Column(db.Integer)
 
 
 class Trucks(db.Model):

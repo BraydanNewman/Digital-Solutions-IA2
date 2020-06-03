@@ -20,7 +20,8 @@
 .rate {
     height: 46px;
     padding: 0 10px;
-
+    border-bottom-style: solid;
+    border-color: rgba(212, 212, 212, 0.5);
 }
 .rate:not(:checked) > input {
     position:absolute;
@@ -84,4 +85,12 @@ textarea {
 #content-container {
     padding: 20px;
     background: white;
+}
+
+.submit button {
+}
+
+.submit {
+    text-align: right!important;
+    padding: 10px;
 }

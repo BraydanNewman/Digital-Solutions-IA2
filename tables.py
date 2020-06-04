@@ -13,12 +13,14 @@ class User(UserMixin, db.Model):
 class Comments(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     user_id = db.Column(db.Integer)
+    truck_id = db.Column(db.Integer)
     comment = db.Column(db.String)
 
 
 class Votes(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     truck_id = db.Column(db.Integer, nullable=False)
+    user_id = db.Column(db.Integer)
     speed = db.Column(db.Integer)
     quality = db.Column(db.Integer)
     money = db.Column(db.Integer)

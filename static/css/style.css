@@ -94,3 +94,8 @@ textarea {
     text-align: right!important;
     padding: 10px;
 }
+
+.comments p {
+    border-bottom-style: solid;
+    border-bottom-color: rgba(203, 203, 203, 0.58);
+}

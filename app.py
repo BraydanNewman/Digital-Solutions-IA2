@@ -2,7 +2,7 @@ from os import path
 import requests
 import time
 from flask import render_template, Flask, request, flash, redirect, url_for
-from flask_login import LoginManager, login_user, current_user, login_required, logout_user
+from flask_login import LoginManager, login_user, current_user, logout_user, login_required
 from flask_sqlalchemy import SQLAlchemy
 from passlib.hash import pbkdf2_sha256
 
@@ -17,7 +17,7 @@ db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-from tables import User, Trucks
+from tables import User, Trucks, Votes, Comments
 
 if path.exists('database/food_truck.sqlite'):
     db.create_all()
@@ -126,16 +126,25 @@ def login():
 @app.route('/option_truck/<string:option>', methods=[ 'POST', 'GET' ])
 def option_truck(option):
     data = selected_truck(option)
-    return render_template('truck.html', data=data)
+    return render_template('truck.html', data=data, truck_comments = Comments.query.filter_by(truck_id=option).all())
 
 
-@app.route('/comment_create', methods=[ 'POST', 'GET' ])
 @login_required
+@app.route('/comment_create', methods=[ 'POST', 'GET' ])
 def comment_create():
     speed = request.form["speed"]
     quality = request.form["quality"]
     money = request.form["money"]
-    return render_template("main.html")
+    comment = request.form["comment"]
+    truck = request.form["truck"]
+    if speed is not None and quality is not None and money is not None:
+        vote = Votes(truck_id=truck, user_id=current_user.id, speed=speed, quality=quality, money=money)
+        db.session.add(vote)
+    if comment is not None:
+        user_comment = Comments(truck_id=truck, user_id=current_user.id, comment=comment)
+        db.session.add(user_comment)
+    db.session.commit()
+    return redirect(url_for("option_truck", option=truck))
 
 
 @app.route("/stats")

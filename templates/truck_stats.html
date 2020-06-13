@@ -8,7 +8,17 @@
     <div class="content_header">
         <h1>{{ data['name'] }}</h1><br>
         <img src="{{ data['cover_photo']['src'] }}" alt="Cover Photo">
-
+    </div>
+    <div>
+        <h6>Average Speed Vote: {{ avrage["speed"] }}</h6>
+        <h6>Average Quality Vote: {{ avrage["quality"] }}</h6>
+        <h6>Average Money Vote: {{ avrage["money"] }}</h6>
+    </div>
+    <div class="comments">
+        <h4>Comments</h4>
+        {% for item in truck_comments %}
+            <p>{{ item.comment }}</p>
+        {% endfor %}
     </div>
 {% endblock %}
 
@@ -17,9 +27,6 @@
 {% endblock %}
 
 {% block top_nav %}
-    {% if current_user.is_authenticated %}
-        <h5 class="user">Hello {{ current_user.username }}</h5>
-    {% endif %}
     <ul>
         <li><a href="{{ url_for('main') }}">Home</a></li>
 
@@ -29,4 +36,7 @@
             <li><a href="{{ url_for('login_router') }}">Login</a></li>
         {% endif %}
     </ul>
+    {% if current_user.is_authenticated %}
+        <h5 class="user">Hello {{ current_user.username }}</h5>
+    {% endif %}
 {% endblock %}

@@ -87,7 +87,7 @@
         {% if current_user.rank == 'admin' %}
             <li><a href="{{ url_for('stats') }}">Stats</a></li>
         {% elif current_user.rank == 'truck' and data["truck_id"] == current_user.owner_truck_id %}
-            <li><a href="{{ url_for('stats') }}">Truck Stats</a></li>
+            <li><a href="{{ url_for('truck_stats', truck=data["truck_id"]) }}">Truck Stats</a></li>
         {% endif %}
     </ul>
     {% if current_user.is_authenticated %}

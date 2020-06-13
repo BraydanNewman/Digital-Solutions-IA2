@@ -74,6 +74,25 @@ def selected_truck(selected_id):
     return "error"
 
 
+def cal_average(truck_id):
+    ratings = Votes.query.filter_by(truck_id=truck_id).all()
+
+    speed_list = []
+    quality_list = []
+    money_list = []
+    averages = {}
+
+    for category in ratings:
+        speed_list.append(category.speed)
+        quality_list.append(category.quality)
+        money_list.append(category.money)
+
+    averages["speed"] = sum(speed_list) / len(speed_list)
+    averages["quality"] = sum(quality_list) / len(quality_list)
+    averages["money"] = sum(money_list) / len(money_list)
+
+    return averages
+
 @app.route("/login_router")
 def login_router():
     flash('')
@@ -152,9 +171,10 @@ def stats():
     return render_template("stats.html")
 
 
-@app.route("/truck_stats")
-def truck_stats():
-    return render_template("truck_stats.html")
+@app.route("/truck_stats/<string:truck>", methods=['POST', 'GET'])
+def truck_stats(truck):
+    data = selected_truck(truck)
+    return render_template("truck_stats.html", data=data, avrage=cal_average(truck), truck_comments = Comments.query.filter_by(truck_id=truck).all())
 
 
 @login_required

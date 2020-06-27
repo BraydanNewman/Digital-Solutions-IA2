@@ -1,2 +1,32 @@
 {% extends "base.html" %}
 
+{% block content %}
+    <div class="list_trucks">
+        {% for item in data %}
+            <div class="truck">
+                <h2>{{ count[loop.index - 1]['name'] }}</h2>
+                <h4>Average speed: {{ item["speed"] }}</h4>
+                <h4>Average quality:{{ item["quality"] }}</h4>
+                <h4>Average money:{{ item["money"] }}</h4>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block top_nav %}
+    <ul>
+        <li><a href="{{ url_for('main') }}">Home</a></li>
+        {% if current_user.is_authenticated %}
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+
+        {% else %}
+            <li><a href="{{ url_for('login_router') }}">Login</a></li>
+        {% endif %}
+        {% if current_user.rank == 'admin' %}
+            <li><a href="{{ url_for('stats') }}">Stats</a></li>
+        {% endif %}
+    </ul>
+    {% if current_user.is_authenticated %}
+        <h5 class="user">Hello {{ current_user.username }}</h5>
+    {% endif %}
+{% endblock %}

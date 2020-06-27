@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+    <input type="text" id="search_filter" onkeyup="filter()" placeholder="Search for names.." title="Type in a name">
     <div class="list_trucks">
         {% for value in data %}
             <a href="{{ url_for('option_truck', option=value["api_key"]) }}">
